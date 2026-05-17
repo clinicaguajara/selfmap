@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Selfmap
 
-## Getting Started
+Selfmap é um projeto para explorar o "mapa de si" por meio de uma aplicação web simples em Next.js. O objetivo é ter um repositório organizado para desenvolvimento, revisão e deploy, com foco em colaboração por branch, pull requests e CI.
 
-First, run the development server:
+## O que é este projeto
+
+- É uma aplicação construída com **Next.js 16** e **TypeScript**.
+- Tem uma estrutura de frontend leve para exibir o conteúdo do mapa pessoal.
+- Serve como base para compartilhar e evoluir o projeto em equipe.
+- Usa **GitHub Actions** para CI e validação automática.
+
+## Estrutura do repositório
+
+- `app/`
+  - Contém a aplicação Next.js com as páginas e componentes principais.
+  - `app/page.tsx` é a página principal.
+  - `app/layout.tsx` define o layout e o HTML base.
+  - `app/globals.css` traz o estilo global.
+
+- `public/`
+  - Imagens e ícones públicos usados pela aplicação.
+
+- `.github/workflows/ci.yml`
+  - Workflow de CI do GitHub Actions.
+  - Executa `npm install`, `npm run lint` e `npm run build` em cada PR ou push para `main`.
+
+- `package.json`
+  - Define scripts e dependências do projeto.
+  - Importante para rodar localmente, compilar e fazer lint.
+
+- `tsconfig.json`
+  - Configuração do TypeScript.
+
+- `eslint.config.mjs`
+  - Regras do ESLint para manter o código consistente.
+
+- `next.config.ts`
+  - Configuração do Next.js.
+
+## Como rodar localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Depois, abra `http://localhost:3000` no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Fluxo de colaboração
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Crie uma branch a partir de `main`:
+   ```bash
+git checkout -b feature/nome-da-feature
+```
+2. Faça commits pequenos e claros.
+3. Envie a branch para o GitHub:
+   ```bash
+git push -u origin feature/nome-da-feature
+```
+4. Abra um Pull Request para `main`.
+5. Aguarde o workflow `CI` rodar e as revisões serem feitas.
 
-## Learn More
+## Proteção de branch e CI
 
-To learn more about Next.js, take a look at the following resources:
+- O repositório usa regras de proteção para `main`.
+- O workflow `CI` deve ser usado como check obrigatório quando disponível.
+- Isso garante que o código seja revisado e que o build/lint passe antes do merge.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sobre o mapa de si
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O projeto se propõe a ser um espaço onde você organiza ideias e reflexões sobre si mesmo — um mapa pessoal em formato digital. A ideia é que o repositório cresça conforme o conteúdo e a interface evoluem, sempre com controle de versão e colaboração segura.
